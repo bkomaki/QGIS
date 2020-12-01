@@ -1,0 +1,26 @@
+segments_to_lines( $geometry)
+
+
+color_hsl( 0,0,
+  scale_linear(
+    abs(
+      (135 +
+        degrees(
+          azimuth(
+             end_point(geometry_n($geometry,@geometry_part_num)),
+            start_point(geometry_n($geometry,@geometry_part_num))
+     )))
+      % 360 - 180),
+  0, 180 ,0, 100))
+
+scale_linear(
+  abs(
+    (135 +
+      degrees(
+        azimuth(
+          end_point(geometry_n($geometry,@geometry_part_num)),
+          start_point(geometry_n($geometry,@geometry_part_num))
+      ) ))
+    % 180 - 90),
+ 0, 90 ,0.2, 1)
+## obtained from https://landscapearchaeology.org/2018/tanaka-contour-lines/
